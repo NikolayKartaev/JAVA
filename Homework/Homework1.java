@@ -3,6 +3,17 @@ package JAVA.Homework;
 import java.util.Scanner;
 
 public class Homework1 {
+    public static void main(String[] args) {
+
+        System.out.println("ЗАДАЧА 1: \n");
+        Task1();
+
+        System.out.println("\nЗАДАЧА 2: \n");
+        FindNums();
+
+        System.out.println("\nЗАДАЧА 3: ");
+        Calculator();
+    }
 
     /*
      * Задача 1. Вычислить n-ое треугольного число (сумма чисел от 1 до n), n!
@@ -77,18 +88,5 @@ public class Homework1 {
             System.out.println((double) num1 / num2);
 
         iScanner.close();
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println("ЗАДАЧА 1: \n");
-        Task1();
-
-        System.out.println("\nЗАДАЧА 2: \n");
-        FindNums();
-
-        System.out.println("\nЗАДАЧА 3: ");
-        Calculator();
-
     }
 }
