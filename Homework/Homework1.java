@@ -74,7 +74,7 @@ public class Homework1 {
         else if (action == '*')
             System.out.println(num1 * num2);
         else if (action == '/')
-            System.out.println(num1 / num2);
+            System.out.println((double) num1 / num2);
 
         iScanner.close();
     }
