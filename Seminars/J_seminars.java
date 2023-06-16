@@ -135,7 +135,7 @@ public class J_seminars {
             }
             else res+=c2;
         }
-
+        iScanner.close();
         System.out.println(res);  
     }
 
@@ -161,7 +161,7 @@ public class J_seminars {
         String c1 = iScanner.next();
         System.out.print("Введите с2: ");
         String c2 = iScanner.next();
-
+        iScanner.close();
         System.out.println(MakeString(N, c1, c2));
     }
 
@@ -190,26 +190,27 @@ public class J_seminars {
         Scanner iScanner = new Scanner(System.in);
         String str = iScanner.nextLine();
         System.out.println(Compresse(str));
+        iScanner.close();
     }
 
     // Записать в файл слово TEST 10 раз
 
     public static void WriteText() {
-        // int N = 10;
-        // String word = "TEST";
-        // try {
-        //     FileWriter writer = new FileWriter("text.txt", true); // false - перезапись, true - добавление
-        //     for (int i = 0; i < N; i++) {
-        //         writer.write(word);
-        //         writer.write("\n");
-        //     }
-        //     System.out.println("Все ОК");
-        //     writer.close();
+        int N = 10;
+        String word = "TEST";
+        try {
+            FileWriter writer = new FileWriter("text.txt", true); // false - перезапись, true - добавление
+            for (int i = 0; i < N; i++) {
+                writer.write(word);
+                writer.write("\n");
+            }
+            System.out.println("Все ОК");
+            writer.close();
 
-        // }
-        // catch (Exception e) {
-        //     System.out.println("Чтото пошло не так");
-        // }
+        }
+        catch (Exception e) {
+            System.out.println("Чтото пошло не так");
+        }
         
         File file = new File(("text.txt"));
         try {
