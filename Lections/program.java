@@ -1,4 +1,3 @@
-
 /** 
  * program
  */
@@ -45,6 +44,8 @@ public class program { // Структура простой программы
         // int n = iScanner.nextInt();
         // System.out.println(n);
         iScanner.close();
+
+        
 
         // int a = 10;
         // int b = 20;
@@ -134,6 +135,9 @@ public class program { // Структура простой программы
 
 
     }
+
+
+    
 }
 /*
  * Типы данных: ссылочные, примитивные
@@ -181,5 +185,31 @@ public class program { // Структура простой программы
  * }
  * 
  * 
+ ЛЕКЦИЯ 2.
+
+ API - application programming interface - контракт, который предоставляет программа.
+
+ 
+
+
+ЛЕКЦИЯ 3. 
+КОЛЛЕКЦИИ в JAVA.
+
+1) Collection --> List --> ArrayList
+
+List - пронумерованный набор элементов
+
+ArrayList list = new ArrayList(); - "удобный массив"
+List list = new ArrayList(); - сырой вариант
+ArrayList <Integer> list = new ArrayList <Integer>(); - вариант с приведением типа данных (обобщение)
+ArrayList <Integer> list = new ArrayList <>();
+ArrayList <Integer> list = new ArrayList <>(10);
+ArrayList <Integer> list = new ArrayList <>(list2);
+
+
+
+ * 
  * 
  */
+
+ 

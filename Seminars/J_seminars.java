@@ -1,6 +1,9 @@
 package JAVA.Seminars;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Scanner;
+import java.io.File;
 
 /**
  * 1) Написать программу, которая запросит пользователя ввести <Имя> в консоли.
@@ -110,12 +113,124 @@ public class J_seminars {
         }
         
     }
-    public static void main(String[] args) {
-        // task1();
-        // task2();
-        // task3();
-        // task4();
-        task5();
 
+    public static void Seminar2_1() {
+        Scanner iScanner = new Scanner(System.in, "cp866");
+        System.out.print("Введите число N: ");
+        int N = iScanner.nextInt();
+
+        while (N%2!=0 || N<=0) {
+            System.out.print("Введите четное число N: ");
+            N = iScanner.nextInt();
+        }
+        System.out.print("Введите с1: ");
+        String c1 = iScanner.next();
+        System.out.print("Введите с2: ");
+        String c2 = iScanner.next();
+        String res = "";
+
+        for (int i = 0; i < N; i++) {
+            if (i%2==0) {
+                res+=c1;
+            }
+            else res+=c2;
+        }
+
+        System.out.println(res);  
+    }
+
+    public static String MakeString(int N, String c1, String c2) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < N/2; i++) {
+            result.append(c1+c2);
+        }
+
+        return result.toString();
+    }
+
+    public static void Input_print1() {
+        Scanner iScanner = new Scanner(System.in, "cp866");
+        System.out.print("Введите число N: ");
+        int N = iScanner.nextInt();
+
+        while (N%2!=0 || N<=0) {
+            System.out.print("Введите четное число N: ");
+            N = iScanner.nextInt();
+        }
+        System.out.print("Введите с1: ");
+        String c1 = iScanner.next();
+        System.out.print("Введите с2: ");
+        String c2 = iScanner.next();
+
+        System.out.println(MakeString(N, c1, c2));
+    }
+
+    public static String Compresse(String input_str) { // aaaabbbcdd a4b3cd2
+        StringBuilder compressed = new StringBuilder();
+        compressed.append(input_str.charAt(0));
+        int count = 1;
+        for (int i = 1; i < input_str.length() ; i++) {
+            if (input_str.charAt(i-1) == input_str.charAt(i)) {
+                count+=1;
+            }
+            else {
+                if (count !=1) {
+                    compressed.append(""+count);
+                    count=1;
+                    compressed.append(input_str.charAt(i));
+                }
+                else compressed.append(input_str.charAt(i));
+            }
+        }
+        if (count!=1) compressed.append(""+count);
+        return compressed.toString();
+    }
+
+    public static void Input_Print2() {
+        Scanner iScanner = new Scanner(System.in);
+        String str = iScanner.nextLine();
+        System.out.println(Compresse(str));
+    }
+
+    // Записать в файл слово TEST 10 раз
+
+    public static void WriteText() {
+        // int N = 10;
+        // String word = "TEST";
+        // try {
+        //     FileWriter writer = new FileWriter("text.txt", true); // false - перезапись, true - добавление
+        //     for (int i = 0; i < N; i++) {
+        //         writer.write(word);
+        //         writer.write("\n");
+        //     }
+        //     System.out.println("Все ОК");
+        //     writer.close();
+
+        // }
+        // catch (Exception e) {
+        //     System.out.println("Чтото пошло не так");
+        // }
+        
+        File file = new File(("text.txt"));
+        try {
+            FileReader reader = new FileReader(file);
+            char[] array = new char[(int) file.length()]; // для чтения всего файла
+            // char[] array = new char[20]; // для указания определенной длины
+            reader.read(array);
+            for (char c : array) {
+                System.out.print(c);
+            }
+            reader.close();
+        }
+        catch (Exception e) {
+            System.out.println("Чтото пошло не так");
+        }
+
+    }
+    public static void main(String[] args) {
+        // Seminar2_1();
+        // Input_print1();
+        // Input_Print2();
+        WriteText();
     }
 }
