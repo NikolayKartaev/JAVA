@@ -41,6 +41,8 @@ public class Homework1 {
         iScanner.nextLine();
         FindSumN(N);
         Factorial(N);
+        iScanner.close();
+
     }
 
     /*
