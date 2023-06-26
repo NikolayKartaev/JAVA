@@ -1,7 +1,9 @@
+
 /** 
  * program
  */
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class program { // Структура простой программы
 
@@ -19,33 +21,63 @@ public class program { // Структура простой программы
         return Factorial(a - 1) * a;
     }
 
-    static public void main(String[] args) { // точка входа. String[] args - массив строк в качестве аргумента
-        // System.out.println("Bye-bye, world");
+    static void PrintString() {
+        String s = "hey";
+        System.out.println(s);
+    }
 
-        // String s = "hey";
-        // System.out.println(s);
-        // System.out.println();
-
+    static void printInputStr() {
         Scanner iScanner = new Scanner(System.in);
         System.out.printf("name: ");
         String name = iScanner.nextLine();
+        System.out.printf("Привет, %s\n", name);
+        iScanner.close();
+    }
+
+    static void ifDigit() {
+        char ch = '1';
+        boolean status = Character.isDigit(ch); // проверяем, символ цифра?
+        System.out.printf("Статус: %b\n", status);
+        char ch2 = 'a';
+        boolean status2 = Character.isDigit(ch2); // проверяем, символ цифра?
+        System.out.printf("Статус: %b", status2);
+    }
+    static void charAt() {
+        
+        String s = "hello";
+        s.replace('h', 'H');
+        System.out.println(s);
+        System.out.print(s.charAt(0));
+    }
+
+    static void ArrLi() {
+        ArrayList list = new ArrayList();
+        for (int i = 0; i < 5; i++) {
+            list.add(i);
+        }
+
+        for (Object iterable_element : list) {
+            System.out.println(iterable_element);
+        }
+        
+    }
+
+    static public void main(String[] args) { // метод Main - точка входа. String[] args - массив строк в качестве аргумента
+        
+        // ifDigit();
+        // charAt();
+        ArrLi();
 
         // int x = iScanner.nextInt();
         // double y = iScanner.nextDouble();
-
-        System.out.printf("Привет, %s\n", name);
         // System.out.printf("%d\n", x);
         // System.out.printf("%f", y);
 
         // System.out.printf("Введите число n: ");
-        // boolean flag = iScanner.hasNextInt(); // проверяет ввод на соответствие типу
-        // (int)
+        // boolean flag = iScanner.hasNextInt(); // проверяет ввод на соответствие типу (int)
         // System.out.println(flag);
         // int n = iScanner.nextInt();
         // System.out.println(n);
-        iScanner.close();
-
-        
 
         // int a = 10;
         // int b = 20;
@@ -57,7 +89,6 @@ public class program { // Структура простой программы
 
         // String res = String.format("%d + %d = %d", a, b, c); // кладем в переменную строку
         // System.out.println(res); // выводим переменную
-
         // System.out.printf("%d + %d = %d \n", a, b, c); // прямой вывод строки
 
         /*
@@ -82,9 +113,9 @@ public class program { // Структура простой программы
         // ВЕТВЛЕНИЕ
 
         // if (a > b) {
-        //     c = a;
+        // c = a;
         // } else {
-        //     c = b;
+        // c = b;
         // }
 
         // if (a > b) c = a;
@@ -101,43 +132,38 @@ public class program { // Структура простой программы
         // int count = 0;
 
         // while (s!=0) {
-        //     s/=10;
-        //     count++;
-        //     System.out.printf("ЦИКЛ %d ",s);
+        // s/=10;
+        // count++;
+        // System.out.printf("ЦИКЛ %d ",s);
         // }
         // System.out.printf("\nРЕЗУЛЬТАТ: %d",count);
 
         // FOR
         // for (int i = 0; i < 10; i++){
-        //     if (i%2==0){
-        //         System.out.println(i);
-        //     }
+        // if (i%2==0){
+        // System.out.println(i);
+        // }
         // }
         // System.out.println();
         // for (int i = 0; i < 10; i++){
-        //     if (i%2==0){
-        //         continue;
-        //     }
-        //     System.out.println(i);
+        // if (i%2==0){
+        // continue;
+        // }
+        // System.out.println(i);
         // }
 
-        // FOR: (FOR IN // FOREACH) - сниппет foreach -- работает только с коллекциями // присвоение только внутри цикла
-        int[] array = new int[5];
-        for (int el: array)
-        {
-            
-            System.out.printf("%d ",el);
+        // FOR: (FOR IN // FOREACH) - сниппет foreach -- работает только с коллекциями
+        // // присвоение только внутри цикла
+        // int[] array = new int[5];
+        // for (int el : array) {
 
-        }
-        System.out.println();
+        // System.out.printf("%d ", el);
 
-
-
+        // }
+        // System.out.println();
 
     }
 
-
-    
 }
 /*
  * Типы данных: ссылочные, примитивные
@@ -185,31 +211,33 @@ public class program { // Структура простой программы
  * }
  * 
  * 
- ЛЕКЦИЯ 2.
-
- API - application programming interface - контракт, который предоставляет программа.
-
- 
-
-
-ЛЕКЦИЯ 3. 
-КОЛЛЕКЦИИ в JAVA.
-
-1) Collection --> List --> ArrayList
-
-List - пронумерованный набор элементов
-
-ArrayList list = new ArrayList(); - "удобный массив"
-List list = new ArrayList(); - сырой вариант
-ArrayList <Integer> list = new ArrayList <Integer>(); - вариант с приведением типа данных (обобщение)
-ArrayList <Integer> list = new ArrayList <>();
-ArrayList <Integer> list = new ArrayList <>(10);
-ArrayList <Integer> list = new ArrayList <>(list2);
-
-
-
+ * ЛЕКЦИЯ 2.
+ * 
+ * API - application programming interface - контракт, который предоставляет
+ * программа.
+ * 
+ StringBuilder - Для компонования, изменения строк.
+ String - для работы с готовыми строками.
+ * 
+ * 
+ * 
+ * 
+ * ЛЕКЦИЯ 3.
+ * КОЛЛЕКЦИИ в JAVA.
+ * 
+ * 1) Collection --> List --> ArrayList
+ * 
+ * List - пронумерованный набор элементов
+ * 
+ * ArrayList list = new ArrayList(); - "удобный массив"
+ * List list = new ArrayList(); - сырой вариант
+ * ArrayList <Integer> list = new ArrayList <Integer>(); - вариант с приведением типа данных (обобщение)
+ * ArrayList <Integer> list = new ArrayList <>();
+ * ArrayList <Integer> list = new ArrayList <>(10);
+ * ArrayList <Integer> list = new ArrayList <>(list2);
+ * 
+ * 
+ * 
  * 
  * 
  */
-
- 
