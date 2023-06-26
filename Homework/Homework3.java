@@ -18,7 +18,7 @@ public class Homework3 {
         list1.add(25);
         System.out.printf("Первоначальный список: %s\n", list1);
 
-        RemoveEvenNumbers(list1);
+        RemoveEvenNumbers2(list1);
         System.out.printf("После удаления четных: %s\n", list1);
 
         FindMin(list1);
@@ -28,6 +28,11 @@ public class Homework3 {
 
     public static void RemoveEvenNumbers(List<Integer> list) {
         list.removeIf(number -> number % 2 == 0);
+    }
+    public static void RemoveEvenNumbers2(List<Integer> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i)%2==0) list.remove(list.get(i));
+        }
     }
 
     public static void FindMin(List<Integer> list) {
