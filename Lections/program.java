@@ -42,8 +42,9 @@ public class program { // Структура простой программы
         boolean status2 = Character.isDigit(ch2); // проверяем, символ цифра?
         System.out.printf("Статус: %b", status2);
     }
+
     static void charAt() {
-        
+
         String s = "hello";
         s.replace('h', 'H');
         System.out.println(s);
@@ -51,7 +52,7 @@ public class program { // Структура простой программы
     }
 
     static void ArrLi() {
-        ArrayList list = new ArrayList();
+        ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             list.add(i);
         }
@@ -59,37 +60,75 @@ public class program { // Структура простой программы
         for (Object iterable_element : list) {
             System.out.println(iterable_element);
         }
-        
+
     }
 
-    static public void main(String[] args) { // метод Main - точка входа. String[] args - массив строк в качестве аргумента
+    static void Ex0() {
+        Scanner iScanner = new Scanner(System.in);
+        int x = iScanner.nextInt();
+        double y = iScanner.nextDouble();
+        System.out.printf("Здесь Х: %d\n", x); // выводим int
+        System.out.printf("Здесь Y: %f", y); // выводим double
+        iScanner.close();
+    }
+
+    static void Ex1() {
+        int a = 10;
+        int b = 20;
+        System.out.println(a + b); // прямой вывод с подсчетом
+        int c = a + b;
+        System.out.println(a + " + " + b + " = " + c); // конкатенация строк
+
+        String res = String.format("%d + %d = %d", a, b, c); // кладем в переменную строку
+        System.out.println(res); // выводим переменную
+
+        System.out.printf("%d + %d = %d \n", a, b, c); // прямой вывод строки
+    }
+
+    static void Ex2() {
+        Scanner iScanner = new Scanner(System.in);
+        System.out.printf("Введите число n: ");
+        boolean flag = iScanner.hasNextInt(); // проверяет ввод на соответствие типу (int)
+        System.out.println(flag); // выводит true или false
+        int n = iScanner.nextInt();
+        System.out.println(n);
+        iScanner.close();
+
+    }
+
+    static void lection2_1() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Hey ");
+        stringBuilder.append("baby!");
+
+        System.out.println(stringBuilder);
+        String s = "Hey ";
+        String s2 = "babies!";
+        System.out.println(s.concat(s2));
+
+        String s3 = "YO! ";
+        System.out.println(String.join(" ", s3, s, s2));
+
+
         
+
+    }
+
+    
+
+    static public void main(String[] args) { // метод Main - точка входа. String[] args - массив строк в качестве
+                                             // аргумента
+
         // ifDigit();
         // charAt();
-        ArrLi();
-
-        // int x = iScanner.nextInt();
-        // double y = iScanner.nextDouble();
-        // System.out.printf("%d\n", x);
-        // System.out.printf("%f", y);
-
-        // System.out.printf("Введите число n: ");
-        // boolean flag = iScanner.hasNextInt(); // проверяет ввод на соответствие типу (int)
-        // System.out.println(flag);
-        // int n = iScanner.nextInt();
-        // System.out.println(n);
-
-        // int a = 10;
-        // int b = 20;
-        // int c = a + b;
-        // System.out.println(a + b); // прямой вывод с подсчетом
-
-        // String result = a + " + " + b + " = " + c; // конкатенация строк - кладем в result строку
-        // System.out.println(result); // выводим переменную
-
-        // String res = String.format("%d + %d = %d", a, b, c); // кладем в переменную строку
-        // System.out.println(res); // выводим переменную
-        // System.out.printf("%d + %d = %d \n", a, b, c); // прямой вывод строки
+        // ArrLi();
+        // Ex0();
+        // Ex1();
+        // Ex2();
+        // sayHi();
+        // System.out.println(sum(10, 15));
+        // System.out.println(Factorial(5));
+        lection2_1();
 
         /*
          * ВИДЫ СПЕЦИФИКАТОРОВ
@@ -103,12 +142,6 @@ public class program { // Структура простой программы
          * %s - вывод строковых значений
          * 
          */
-
-        // ФУНКЦИИ (return) И МЕТОДЫ (void)
-
-        // sayHi();
-        // System.out.println(sum(10, 15));
-        // System.out.println(Factorial(5));
 
         // ВЕТВЛЕНИЕ
 
@@ -216,8 +249,8 @@ public class program { // Структура простой программы
  * API - application programming interface - контракт, который предоставляет
  * программа.
  * 
- StringBuilder - Для компонования, изменения строк.
- String - для работы с готовыми строками.
+ * StringBuilder - Для компонования, изменения строк.
+ * String - для работы с готовыми строками.
  * 
  * 
  * 
@@ -231,7 +264,8 @@ public class program { // Структура простой программы
  * 
  * ArrayList list = new ArrayList(); - "удобный массив"
  * List list = new ArrayList(); - сырой вариант
- * ArrayList <Integer> list = new ArrayList <Integer>(); - вариант с приведением типа данных (обобщение)
+ * ArrayList <Integer> list = new ArrayList <Integer>(); - вариант с приведением
+ * типа данных (обобщение)
  * ArrayList <Integer> list = new ArrayList <>();
  * ArrayList <Integer> list = new ArrayList <>(10);
  * ArrayList <Integer> list = new ArrayList <>(list2);
