@@ -4,8 +4,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedList;
-
+import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
@@ -415,6 +416,54 @@ public class J_seminars {
         return queue;
     }
 
+    public static void Seminar5_1 () {
+        Map <Integer, String> hashmap = new HashMap<>();
+        hashmap.put(123456, "Иванов");
+        hashmap.put(234567, "Петров");
+        hashmap.put(345678, "Иванов");
+        hashmap.put(456789, "Сидоров");
+        hashmap.put(567890, "Иванов");
+        hashmap.put(678901, "Петрова");
+        
+        for (var item : hashmap.entrySet()) {
+            if (item.getValue().equals("Иванов")) {
+                System.out.println(item);
+            }
+        }
+
+    }
+    public static void Seminar5_2 () {
+        Scanner iScanner = new Scanner(System.in);
+        String str1 = iScanner.nextLine();
+        String str2 = iScanner.nextLine();
+
+        iScanner.close();
+
+        System.out.println(checkIzomorpic(str1,str2));
+    }
+
+    public static Boolean checkIzomorpic (String a, String b) {
+        Map<Character,Character> map1 = new HashMap<>();
+        if (a.length()!=b.length()) return false;
+        else {
+            for (int i = 0; i < a.length(); i++) {
+                if (!map1.containsKey(a.charAt(i))) 
+                    map1.put(a.charAt(i),b.charAt(i));
+                else {
+                    if (map1.get(a.charAt(i))!= b.charAt(i))
+                        return false;
+                }
+                
+            }
+
+        }
+
+        return true;
+    } 
+
+
+
+
     public static void main(String[] args) {
         // Seminar2_1();
         // Input_print1();
@@ -427,7 +476,33 @@ public class J_seminars {
         // Seminar4_task2();
         // Seminar4_task3();
         // Seminar4_task4();
-        Seminar4_task5();
+        // Seminar4_task5();
+        // Seminar5_1 ();
+        Seminar5_2 ();
 
+        // int[] array = new int[] {1,2,3};
+        // for (int item : array) {
+        //     System.out.println(item);
+        // }
+
+        // ArrayList<Integer> list = new ArrayList<>();
+        // list.add(1);
+        // list.add(2);        
+        // list.add(3);
+
+        // for (Integer items : list) {
+        //     System.out.println(items);
+        // }
+
+        // Map<Integer, String> hashmap = new HashMap<>();
+        // hashmap.put(1,"one");
+        // hashmap.put(2,"two");
+        // hashmap.put(3,"three");
+
+        // for (var item : hashmap.entrySet()) {
+        //     if (item.getValue().equals("two")){
+        //         System.out.println(item);
+        //     }
+        // }
     }
 }

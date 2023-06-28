@@ -2,8 +2,12 @@
 /** 
  * program
  */
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class program { // Структура простой программы
 
@@ -109,12 +113,88 @@ public class program { // Структура простой программы
         String s3 = "YO! ";
         System.out.println(String.join(" ", s3, s, s2));
 
+    }
 
-        
+    // Лекция 5. MAP
+    /*
+     *    ________________MAP__________________ --- MAP - коллекции, работающие с данными по принципу < КЛЮЧ / ЗНАЧЕНИЕ >
+     *   |                  |                  |
+     * HASHMAP          SORTEDMAP           HASHTABLE
+     *    |                 |
+     * LINKEDHASHMAP   NAVIGABLEMAP
+     *                      |
+     *                  TREEMAP
+     * 
+     * 
+     * HASHMAP:
+     * 1. ускоренная обработка данных
+     * 2. не запоминается порядок добавления
+     * 3. уникальные ключи
+     * 
+     * TREEMAP
+     * То же самое, что и HASHMAP, но упорядоченное по ключам
+     * 
+     * LINKEDHASHMAP
+     * То же самое, что и HASHMAP, но помнит порядок добавления элементов
+
+     * HASHTABLE
+     * 
+
+     */
+    public static void Lection5_1() {
+        Map<Integer, String> database = new HashMap<>();
+
+        database.putIfAbsent(1, "one"); // Добавляет, если такого ключа нет
+        database.put(50, "fifty");  // Добавляет пару ключ/значение
+        database.put(2, "two");  // Добавляет пару ключ/значение
+        database.putIfAbsent(2, "one");
+        database.putIfAbsent(3, "three");
+        database.putIfAbsent(100, "hundred");
+
+        System.out.println(database); // {1=one, 50=fifty, 2=two, 3=three, 100=hundred}
+        System.out.println(database.get(3)); // three - получение значения по ключу
+        System.out.println(database.get(4)); // null
+        System.out.println(database.containsValue("two")); // true - проверка присутствия значения
+        System.out.println(database.containsKey(2)); // true - проверка присутствия ключа
+        System.out.println(database.keySet()); // [1, 50, 2, 3, 100] - возвращает ключи
+        System.out.println(database.values()); // [one, fifty, two, three, hundred] - возвращает значения
 
     }
 
-    
+    public static void Lection5_2() {
+        TreeMap<Integer, String> tmap = new TreeMap<>();
+        tmap.put(100,"hundred");
+        tmap.put(1,"one");
+        tmap.put(5,"five");
+        tmap.put(10,"ten");
+        tmap.put(8,"eight");
+
+        System.out.println(tmap); //{1=one, 5=five, 8=eight, 10=ten, 100=hundred}
+        System.out.println(tmap.descendingKeySet()); //[100, 10, 8, 5, 1]
+        System.out.println(tmap.descendingMap()); //{100=hundred, 10=ten, 8=eight, 5=five, 1=one}
+
+    }
+
+    public static void Lection5_3() {
+        Map<Integer, String> database = new LinkedHashMap<>();
+
+        database.putIfAbsent(1, "one"); // Добавляет, если такого ключа нет
+        database.put(50, "fifty");  // Добавляет пару ключ/значение
+        database.put(2, "two");  // Добавляет пару ключ/значение
+        database.putIfAbsent(2, "one");
+        database.putIfAbsent(3, "three");
+        database.putIfAbsent(100, "hundred");
+
+        System.out.println(database); // {1=one, 50=fifty, 2=two, 3=three, 100=hundred}
+        System.out.println(database.get(3)); // three - получение значения по ключу
+        System.out.println(database.get(4)); // null
+        System.out.println(database.containsValue("two")); // true - проверка присутствия значения
+        System.out.println(database.containsKey(2)); // true - проверка присутствия ключа
+        System.out.println(database.keySet()); // [1, 50, 2, 3, 100] - возвращает ключи
+        System.out.println(database.values()); // [one, fifty, two, three, hundred] - возвращает значения
+
+    }
+
 
     static public void main(String[] args) { // метод Main - точка входа. String[] args - массив строк в качестве
                                              // аргумента
@@ -128,7 +208,12 @@ public class program { // Структура простой программы
         // sayHi();
         // System.out.println(sum(10, 15));
         // System.out.println(Factorial(5));
-        lection2_1();
+        // lection2_1();
+        // Lection5_1();
+        // Lection5_2();
+        // Lection5_3();
+
+
 
         /*
          * ВИДЫ СПЕЦИФИКАТОРОВ
