@@ -9,9 +9,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
-
-
-
 import java.io.File;
 import java.util.Random;
 
@@ -383,7 +380,7 @@ public class J_seminars {
 
     public static void Seminar4_task4() {
         Scanner iScanner = new Scanner(System.in);
-        Stack<String> list1 = new Stack<>();
+        Stack <String> list1 = new Stack<>();
         String message = "";
         while (!message.equals("exit")) {
             message = iScanner.nextLine();
