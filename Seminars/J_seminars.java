@@ -2,17 +2,15 @@ package JAVA.Seminars;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.List;
+
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
+
 
 import java.io.File;
 import java.util.Random;
@@ -379,6 +377,7 @@ public class J_seminars {
             System.out.println(list1);
 
         }
+        iScanner.close();
 
     }
 
@@ -398,6 +397,7 @@ public class J_seminars {
                 list1.push(message);
 
         }
+        iScanner.close();
 
     }
 
