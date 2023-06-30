@@ -3,10 +3,13 @@
  * program
  */
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class program { // Структура простой программы
@@ -117,13 +120,14 @@ public class program { // Структура простой программы
 
     // Лекция 5. MAP
     /*
-     *    ________________MAP__________________ --- MAP - коллекции, работающие с данными по принципу < КЛЮЧ / ЗНАЧЕНИЕ >
-     *   |                  |                  |
-     * HASHMAP          SORTEDMAP           HASHTABLE
-     *    |                 |
-     * LINKEDHASHMAP   NAVIGABLEMAP
-     *                      |
-     *                  TREEMAP
+     * ________________MAP__________________ --- MAP - коллекции, работающие с
+     * данными по принципу < КЛЮЧ / ЗНАЧЕНИЕ >
+     * | | |
+     * HASHMAP SORTEDMAP HASHTABLE
+     * | |
+     * LINKEDHASHMAP NAVIGABLEMAP
+     * |
+     * TREEMAP
      * 
      * 
      * HASHMAP:
@@ -136,17 +140,17 @@ public class program { // Структура простой программы
      * 
      * LINKEDHASHMAP
      * То же самое, что и HASHMAP, но помнит порядок добавления элементов
-
+     * 
      * HASHTABLE
      * 
-
+     * 
      */
     public static void Lection5_1() {
         Map<Integer, String> database = new HashMap<>();
 
         database.putIfAbsent(1, "one"); // Добавляет, если такого ключа нет
-        database.put(50, "fifty");  // Добавляет пару ключ/значение
-        database.put(2, "two");  // Добавляет пару ключ/значение
+        database.put(50, "fifty"); // Добавляет пару ключ/значение
+        database.put(2, "two"); // Добавляет пару ключ/значение
         database.putIfAbsent(2, "one");
         database.putIfAbsent(3, "three");
         database.putIfAbsent(100, "hundred");
@@ -163,15 +167,15 @@ public class program { // Структура простой программы
 
     public static void Lection5_2() {
         TreeMap<Integer, String> tmap = new TreeMap<>();
-        tmap.put(100,"hundred");
-        tmap.put(1,"one");
-        tmap.put(5,"five");
-        tmap.put(10,"ten");
-        tmap.put(8,"eight");
+        tmap.put(100, "hundred");
+        tmap.put(1, "one");
+        tmap.put(5, "five");
+        tmap.put(10, "ten");
+        tmap.put(8, "eight");
 
-        System.out.println(tmap); //{1=one, 5=five, 8=eight, 10=ten, 100=hundred}
-        System.out.println(tmap.descendingKeySet()); //[100, 10, 8, 5, 1]
-        System.out.println(tmap.descendingMap()); //{100=hundred, 10=ten, 8=eight, 5=five, 1=one}
+        System.out.println(tmap); // {1=one, 5=five, 8=eight, 10=ten, 100=hundred}
+        System.out.println(tmap.descendingKeySet()); // [100, 10, 8, 5, 1]
+        System.out.println(tmap.descendingMap()); // {100=hundred, 10=ten, 8=eight, 5=five, 1=one}
 
     }
 
@@ -179,8 +183,8 @@ public class program { // Структура простой программы
         Map<Integer, String> database = new LinkedHashMap<>();
 
         database.putIfAbsent(1, "one"); // Добавляет, если такого ключа нет
-        database.put(50, "fifty");  // Добавляет пару ключ/значение
-        database.put(2, "two");  // Добавляет пару ключ/значение
+        database.put(50, "fifty"); // Добавляет пару ключ/значение
+        database.put(2, "two"); // Добавляет пару ключ/значение
         database.putIfAbsent(2, "one");
         database.putIfAbsent(3, "three");
         database.putIfAbsent(100, "hundred");
@@ -195,6 +199,77 @@ public class program { // Структура простой программы
 
     }
 
+    public static void Lection6_1() {
+        Set<Integer> set = new HashSet<>();
+
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        System.out.println(set); // [1, 2, 3, 20, 10, 30]
+        System.out.println(set.size()); // 6
+        System.out.println(set.contains(10)); // true
+        set.remove(10);
+        System.out.println(set.size());// 5
+        System.out.println(set.contains(10)); // false
+
+        for (var item : set) {
+            System.out.print(item + " "); // 1 2 3 20 30
+        }
+        set.clear();
+        System.out.println(set); // []
+    }
+
+    public static void Lection6_2() {
+        var a = new HashSet<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));
+        var b = new HashSet<>(Arrays.asList(3, 4, 5, 6, 7, 10, 15, 20));
+
+        var u = new HashSet<Integer>(a);
+        u.addAll(b); // Объединение
+        var r = new HashSet<Integer>(a);
+        r.retainAll(b); // пересечение
+        var s = new HashSet<Integer>(a);
+        s.removeAll(b); // разность
+        var s2 = new HashSet<Integer>(b);
+        s2.removeAll(a); // разность
+
+        System.out.println("Объединение: " + u);
+        System.out.println("Пересечение: " + r);
+        System.out.println("Разность a и b: " + s);
+        System.out.println("Разность b и a: " + s2);
+
+        boolean res = a.addAll(b);
+        System.out.println(res);
+
+    }
+
+    public static void OOPstart() {
+        Worker worker1 = new Worker();
+        worker1.id = 1;
+        worker1.salary = 50000;
+        worker1.name = "Yuri";
+        worker1.surname = "Sidorov";
+
+        Worker worker2 = new Worker();
+        worker2.id = 2;
+        worker2.salary = 70000;
+        worker2.name = "Ivan";
+        worker2.surname = "Petrov";
+
+        ArrayList<Object> list = new ArrayList<>(Arrays.asList(worker1, worker2));
+        for (Object object : list) {
+            System.out.println(object);
+        }
+        ArrayList<Worker> list2 = new ArrayList<>(Arrays.asList(worker1, worker2));
+        for (Worker object : list2) {
+            System.out.println(object);
+        }
+        System.out.println(worker1);
+        System.out.println(worker2);
+
+    }
 
     static public void main(String[] args) { // метод Main - точка входа. String[] args - массив строк в качестве
                                              // аргумента
@@ -212,8 +287,9 @@ public class program { // Структура простой программы
         // Lection5_1();
         // Lection5_2();
         // Lection5_3();
-
-
+        // Lection6_1();
+        // Lection6_2();
+        OOPstart();
 
         /*
          * ВИДЫ СПЕЦИФИКАТОРОВ

@@ -1,14 +1,18 @@
 package JAVA.Seminars;
 
 import java.io.FileReader;
+
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Stack;
 import java.io.File;
 import java.util.Random;
@@ -381,7 +385,7 @@ public class J_seminars {
 
     public static void Seminar4_task4() {
         Scanner iScanner = new Scanner(System.in);
-        Stack <String> list1 = new Stack<>();
+        Stack<String> list1 = new Stack<>();
         String message = "";
         while (!message.equals("exit")) {
             message = iScanner.nextLine();
@@ -416,15 +420,15 @@ public class J_seminars {
         return queue;
     }
 
-    public static void Seminar5_1 () {
-        Map <Integer, String> hashmap = new HashMap<>();
+    public static void Seminar5_1() {
+        Map<Integer, String> hashmap = new HashMap<>();
         hashmap.put(123456, "Иванов");
         hashmap.put(234567, "Петров");
         hashmap.put(345678, "Иванов");
         hashmap.put(456789, "Сидоров");
         hashmap.put(567890, "Иванов");
         hashmap.put(678901, "Петрова");
-        
+
         for (var item : hashmap.entrySet()) {
             if (item.getValue().equals("Иванов")) {
                 System.out.println(item);
@@ -432,37 +436,85 @@ public class J_seminars {
         }
 
     }
-    public static void Seminar5_2 () {
+
+    public static void Seminar5_2() {
         Scanner iScanner = new Scanner(System.in);
         String str1 = iScanner.nextLine();
         String str2 = iScanner.nextLine();
 
         iScanner.close();
 
-        System.out.println(checkIzomorpic(str1,str2));
+        System.out.println(checkIzomorpic(str1, str2));
     }
 
-    public static Boolean checkIzomorpic (String a, String b) {
-        Map<Character,Character> map1 = new HashMap<>();
-        if (a.length()!=b.length()) return false;
+    public static Boolean checkIzomorpic(String a, String b) {
+        Map<Character, Character> map1 = new HashMap<>();
+        if (a.length() != b.length())
+            return false;
         else {
             for (int i = 0; i < a.length(); i++) {
-                if (!map1.containsKey(a.charAt(i))) 
-                    map1.put(a.charAt(i),b.charAt(i));
+                if (!map1.containsKey(a.charAt(i)))
+                    map1.put(a.charAt(i), b.charAt(i));
                 else {
-                    if (map1.get(a.charAt(i))!= b.charAt(i))
+                    if (map1.get(a.charAt(i)) != b.charAt(i))
                         return false;
                 }
-                
+
             }
 
         }
 
         return true;
-    } 
+    }
 
+    public static Integer[] FillArray() {
+        Integer[] array = new Integer[15];
+        Random random = new Random();
 
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(9);
+            System.out.printf("%d ", array[i]);
+        }
+        return array;
+    }
 
+    public static float returnPercent(Integer[] arr) {
+        Set<Integer> unique = new HashSet<Integer>(Arrays.asList(arr));
+
+        float percent = (float) unique.size() * 100 / arr.length;
+        return percent;
+    }
+
+    // public static void Cats() {
+    // // Cat cat1 = new Cat();
+    // // cat1.name = "Barsik";
+    // // cat1.age = 2;
+    // // cat1.healthy = false;
+    // cat1.addIllness("Кашель");
+    // cat1.addIllness("Сопли");
+    // cat1.isIll();
+    // System.out.println(cat1.Myau(5));
+    // cat1.Vaccine();
+
+    // }
+
+    public static void Cats2() {
+        Cat cat2 = new Cat("Murzik", 5, false);
+        System.out.println(cat2);
+
+        cat2.setName("Murka");
+        System.out.println(cat2);
+
+        Cat cat3 = new Cat("Susu", 3);
+
+        ArrayList<Cat> catlist = new ArrayList<>();
+        catlist.add(cat2);
+        catlist.add(cat3);
+        System.out.println(cat3);
+
+        System.out.println(catlist);
+
+    }
 
     public static void main(String[] args) {
         // Seminar2_1();
@@ -478,20 +530,22 @@ public class J_seminars {
         // Seminar4_task4();
         // Seminar4_task5();
         // Seminar5_1 ();
-        Seminar5_2 ();
+        // Seminar5_2 ();
+        // Cats();
+        Cats2();
 
         // int[] array = new int[] {1,2,3};
         // for (int item : array) {
-        //     System.out.println(item);
+        // System.out.println(item);
         // }
 
         // ArrayList<Integer> list = new ArrayList<>();
         // list.add(1);
-        // list.add(2);        
+        // list.add(2);
         // list.add(3);
 
         // for (Integer items : list) {
-        //     System.out.println(items);
+        // System.out.println(items);
         // }
 
         // Map<Integer, String> hashmap = new HashMap<>();
@@ -500,9 +554,9 @@ public class J_seminars {
         // hashmap.put(3,"three");
 
         // for (var item : hashmap.entrySet()) {
-        //     if (item.getValue().equals("two")){
-        //         System.out.println(item);
-        //     }
+        // if (item.getValue().equals("two")){
+        // System.out.println(item);
+        // }
         // }
     }
 }
