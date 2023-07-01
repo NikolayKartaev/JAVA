@@ -1,47 +1,13 @@
 package JAVA.Homework;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-/**
- * // Подумать над структурой класса Ноутбук для магазина техники - выделить
- * поля и методы.
- * // Создать множество ноутбуков.
- * // Написать метод, который будет запрашивать у пользователя критерий
- * фильтрации и выведет ноутбуки, отвечающие фильтру.
- * // NoteBook notebook1 = new NoteBook
- * // NoteBook notebook2 = new NoteBook
- * // NoteBook notebook3 = new NoteBook
- * // NoteBook notebook4 = new NoteBook
- * // NoteBook notebook5 = new NoteBook
- * 
- * // Например: “Введите цифру, соответствующую необходимому критерию:
- * // 1 - ОЗУ
- * // 2 - Объем ЖД hd hdd
- * // 3 - Операционная система
- * // 4 - Цвет
- * 
- * // Далее нужно запросить минимальные значения для указанных критериев -
- * сохранить параметры фильтрации можно также в Map.
- * // Отфильтровать ноутбуки их первоначального множества и вывести проходящие
- * по условиям.
- * // Класс сделать в отдельном файле
- * 
- * // приветствие
- * // Выбор параметра
- * // выбор конкретнее
- * // вывод подходящих
- */
-
 public class Homework6 {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         Notebook notebook1 = new Notebook(123456789, "ASUS", "i9", "Windows", "Grey", 32, 1024);
         Notebook notebook2 = new Notebook(234567890, "MSI", "i7", "Windows", "Blue", 16, 512);
@@ -64,7 +30,7 @@ public class Homework6 {
         notebooks_list.add(notebook8);
         notebooks_list.add(notebook9);
 
-        Scanner iScanner = new Scanner(System.in);
+        Scanner iScanner = new Scanner(System.in, "cp866");
         System.out.println("Введите цифру, соответствующую необходимому критерию:\n"
                 + "1 - Объем HDD \n"
                 + "2 - Объем ОЗУ \n"
@@ -73,14 +39,43 @@ public class Homework6 {
                 + "5 - Операционная система\n"
                 + "6 - Цвет");
 
-        int filter = iScanner.nextInt();
-        iScanner.nextLine();
-        System.out.println("Введите минимальное значение для указанного критерия:");
-        
-        String minimum = iScanner.nextLine();
+        int option = iScanner.nextInt();
+        Map<String, Object> filters = new HashMap<>();
 
-        Set<Notebook> filtered_notebooks = Filtering(notebooks_list, filter, minimum);
-        iScanner.close();
+        switch (option) {
+            case 1:
+                System.out.println("Введите минимальное значение необходимого объема HDD\n");
+                int minHDD = iScanner.nextInt();
+                filters.put("minHDD", minHDD);
+                break;
+            case 2:
+                System.out.println("Введите минимальное значение необходимого объема RAM\n");
+                int minRAM = iScanner.nextInt();
+                filters.put("minRAM", minRAM);
+                break;
+            case 3:
+                System.out.println("Введите значение необходимого процессора\n");
+                String CPU = iScanner.next();
+                filters.put("CPU", CPU);
+                break;
+            case 4:
+                System.out.println("Введите значение необходимого производителя\n");
+                String Producer = iScanner.next();
+                filters.put("Producer", Producer);
+                break;
+            case 5:
+                System.out.println("Введите значение необходимой операционной системы\n");
+                String OS = iScanner.next();
+                filters.put("OS", OS);
+                break;
+            case 6:
+                System.out.println("Введите необходимый цвет ноутбука\n");
+                String Color = iScanner.next();
+                filters.put("Color", Color);
+                break;
+        }
+
+        Set<Notebook> filtered_notebooks = Filtering(notebooks_list, filters);
 
         System.out.println("Проходящие по условиям ноутбуки: ");
         for (Notebook notebook : filtered_notebooks) {
@@ -88,43 +83,124 @@ public class Homework6 {
                     notebook.getProducer(), notebook.getCPU(), notebook.getOS(), notebook.getColor(), notebook.getRAM(),
                     notebook.getHDD()));
         }
+
+        System.out.println("Необходимо ли уточнить фильтрацию? (да/нет)\n");
+        iScanner.nextLine();
+        String answer = iScanner.nextLine();
+
+        if (answer.equals("да")) {
+            System.out.println("Введите цифру, соответствующую необходимому критерию:\n"
+                    + "1 - Объем HDD \n"
+                    + "2 - Объем ОЗУ \n"
+                    + "3 - Процессор \n"
+                    + "4 - Производитель\n"
+                    + "5 - Операционная система\n"
+                    + "6 - Цвет");
+
+            int second_option = iScanner.nextInt();
+
+            switch (second_option) {
+                case 1:
+                    System.out.println("Введите минимальное значение необходимого объема HDD\n");
+                    int minHDD = iScanner.nextInt();
+                    filters.put("minHDD", minHDD);
+                    break;
+                case 2:
+                    System.out.println("Введите минимальное значение необходимого объема RAM\n");
+                    int minRAM = iScanner.nextInt();
+                    filters.put("minRAM", minRAM);
+                    break;
+                case 3:
+                    System.out.println("Введите значение необходимого процессора\n");
+                    String CPU = iScanner.next();
+                    filters.put("CPU", CPU);
+                    break;
+                case 4:
+                    System.out.println("Введите значение необходимого производителя\n");
+                    String Producer = iScanner.next();
+                    filters.put("Producer", Producer);
+                    break;
+                case 5:
+                    System.out.println("Введите значение необходимой ОС\n");
+                    String OS = iScanner.next();
+                    filters.put("OS", OS);
+                    break;
+                case 6:
+                    System.out.println("Введите необходимый цвет ноутбука\n");
+                    String Color = iScanner.next();
+                    filters.put("Color", Color);
+                    break;
+            }
+            Set<Notebook> second_filtered_notebooks = Filtering(filtered_notebooks, filters);
+
+            PrintList(second_filtered_notebooks);
+
+        } else {
+            System.out.println("Ваш список готов.");
+            PrintList(filtered_notebooks);
+        }
+
+        iScanner.close();
+
     }
 
-    public static Set<Notebook> Filtering(Set<Notebook> set, int filter, String value) {
+    public static void PrintList(Set<Notebook> list) {
+        System.out.println("Проходящие по условиям ноутбуки: ");
+        for (Notebook notebook : list) {
+            System.out.println(String.format("Producer: %s, CPU: %s, OS: %s, Color: %s, RAM: %d, HDD: %d",
+                    notebook.getProducer(), notebook.getCPU(), notebook.getOS(), notebook.getColor(), notebook.getRAM(),
+                    notebook.getHDD()));
+        }
+    }
+
+    public static Set<Notebook> Filtering(Set<Notebook> set, Map<String, Object> HashMap) {
         Set<Notebook> filtered_notebooks = new HashSet<>();
 
         for (Notebook notebook : set) {
-            switch (filter) {
-                case 1:
-                    if (notebook.getHDD() >= Integer.parseInt(value)) {
-                        filtered_notebooks.add(notebook);
-                    }
-                    break;
-                case 2:
-                    if (notebook.getRAM() >= Integer.parseInt(value)) {
-                        filtered_notebooks.add(notebook);
-                    }
-                    break;
-                case 3:
-                    if (notebook.getCPU().equals((value))) {
-                        filtered_notebooks.add(notebook);
-                    }
-                    break;
-                case 4:
-                    if (notebook.getProducer().equals((value))) {
-                        filtered_notebooks.add(notebook);
-                    }
-                    break;
-                case 5:
-                    if (notebook.getOS().equals((value))) {
-                        filtered_notebooks.add(notebook);
-                    }
-                    break;
-                case 6:
-                    if (notebook.getColor().equals((value))) {
-                        filtered_notebooks.add(notebook);
-                    }
-                    break;
+            boolean rightFilter = true;
+
+            if (HashMap.containsKey("minHDD")) {
+                int minHDD = (int) HashMap.get("minHDD");
+                if (notebook.getHDD() < minHDD) {
+                    rightFilter = false;
+                }
+            }
+
+            if (HashMap.containsKey("minRAM")) {
+                int minRAM = (int) HashMap.get("minRAM");
+                if (notebook.getRAM() < minRAM) {
+                    rightFilter = false;
+                }
+            }
+
+            if (HashMap.containsKey("CPU")) {
+                String CPU = (String) HashMap.get("CPU");
+                if (!notebook.getCPU().equals(CPU)) {
+                    rightFilter = false;
+                }
+            }
+            if (HashMap.containsKey("Producer")) {
+                String Producer = (String) HashMap.get("Producer");
+                if (!notebook.getProducer().equals(Producer)) {
+                    rightFilter = false;
+                }
+            }
+
+            if (HashMap.containsKey("OS")) {
+                String OS = (String) HashMap.get("OS");
+                if (!notebook.getOS().equals(OS)) {
+                    rightFilter = false;
+                }
+            }
+            if (HashMap.containsKey("Color")) {
+                String Color = (String) HashMap.get("Color");
+                if (!notebook.getColor().equals(Color)) {
+                    rightFilter = false;
+                }
+            }
+
+            if (rightFilter) {
+                filtered_notebooks.add(notebook);
             }
         }
         return filtered_notebooks;

@@ -1,7 +1,9 @@
 package JAVA.Homework;
 
 import java.util.ArrayList;
-/* */
+/*
+ * Класс Notebook
+*/
 public class Notebook {
     private Integer IMEI;
     private String Producer;
