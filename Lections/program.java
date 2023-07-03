@@ -431,7 +431,7 @@ public class program { // Структура простой программы
  * ArrayList <Integer> list = new ArrayList <>(10);
  * ArrayList <Integer> list = new ArrayList <>(list2);
  * 
- * 
+ * ИНКАПСУЛЯЦИЯ
  * 
  * 
  * 

@@ -1,8 +1,8 @@
 package JAVA.Homework;
 
 import java.util.ArrayList;
-/*
- * Класс Notebook
+/**
+* Это класс Notebook
 */
 public class Notebook {
     private Integer IMEI;
@@ -13,10 +13,20 @@ public class Notebook {
     private String OS;
     private String Color;
 
+   
     ArrayList<String> filtered_notebooks = new ArrayList<>();
 
     //ctor - вызов конструктора
-
+    /**
+     * Конструктор экземпляра класса Notebook
+     * @param IMEI код IMEI
+     * @param Producer наименование производителя
+     * @param CPU наименование процессора
+     * @param OS наименование операционной системы
+     * @param Color цвет ноутбука
+     * @param RAM объем ОЗУ
+     * @param HDD объем жесткого диска
+     */
     public Notebook(Integer IMEI, String Producer, String CPU, String OS, String Color, Integer RAM, Integer HDD) {
         this.CPU = CPU;
         this.Color = Color;
@@ -27,7 +37,10 @@ public class Notebook {
         this.Producer = Producer;
 
     }
-
+    /**
+     * Получает значение наименования процессора
+     * @return возвращает наименования процессора
+     */
     public String getCPU() {
         return CPU;
     }
