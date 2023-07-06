@@ -1,8 +1,5 @@
 package JAVA.Seminars;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class algo_seminars {
 
     public static int FindSum(int n) {
@@ -40,5 +37,10 @@ public class algo_seminars {
         // System.out.println(FindSum(5));
         Fibo2(10);
     }
+
+    // ДОБАВИТЬ КОНСПЕКТ 2-ого СЕМИНАРА
+
+    
+
 
 }
