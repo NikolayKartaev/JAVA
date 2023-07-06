@@ -26,9 +26,9 @@ public class algo_seminars {
         F[2] = 1;
 
         for (int i = 3; i <= N; i++) {
-            F[i] = F[i - 1] + F[i - 2];            
+            F[i] = F[i - 1] + F[i - 2];
         }
-        
+
         return F[N];
     }
 
@@ -40,7 +40,61 @@ public class algo_seminars {
 
     // ДОБАВИТЬ КОНСПЕКТ 2-ого СЕМИНАРА
 
-    
+    // СЕМИНАР 4
 
+    // ХЕШ-ТАБЛИЦА
+
+    public class HashMap {
+
+        class Entity {
+            int key;
+            int value;
+        }
+
+        class Basket {
+            static Node head;
+
+            class Node {
+                Node next;
+                Entity entity;
+            }
+
+            public static Integer find (int key) {
+                Node node = head;
+                while (node!=null) {
+                    if(node.entity.key == key) {
+                        return node.entity.value;
+                    }
+                }
+                return null;
+            }
+
+        }
+
+        final static int INIT_SIZE = 16;
+        private static Basket[] baskets;
+
+        public HashMap(int size) {
+            baskets = new Basket[size];
+        }
+
+        public HashMap() {
+            this(INIT_SIZE);
+        }
+
+        private static int getIndex(int key) {
+            return key%baskets.length;
+        }
+
+        public static Integer find (int key) {
+            int index = getIndex(key);
+            Basket basket = baskets[index];
+            if (basket == null) {
+                return null;
+            }
+            return basket.find(key);
+        }
+        
+    }
 
 }
