@@ -1,4 +1,4 @@
-import java.util.HashMap;
+package JAVA.Homework;
 
 public class Algorithms_HW4 {
 
