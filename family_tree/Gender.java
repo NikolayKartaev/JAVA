@@ -1,4 +1,4 @@
-package JAVA.Seminars.OOP.family_tree;
+package JAVA.family_tree;
 /** */
 public enum Gender {
     Male, Female;
