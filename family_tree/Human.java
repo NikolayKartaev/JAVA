@@ -1,11 +1,12 @@
 package JAVA.family_tree;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 
 /** */
-public class Human {
+public class Human implements Serializable {
     private String name;
     private String surname;
     private LocalDate dateOfBirth;

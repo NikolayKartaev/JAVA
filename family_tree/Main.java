@@ -1,7 +1,7 @@
 package JAVA.family_tree;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Main {
 
@@ -28,13 +28,13 @@ public class Main {
 
         anastasiaKartaeva.addChildM(vladMakarov);
 
-        System.out.println(nikolayKartaev);
-        System.out.println(anastasiaKartaeva);
-        System.out.println(platonKartaev);
-        System.out.println(sergeyKartaev);
-        System.out.println(olgaKartaeva);
-        System.out.println(ivanKartaev);
-        System.out.println(vladMakarov);
+        // System.out.println(nikolayKartaev);
+        // System.out.println(anastasiaKartaeva);
+        // System.out.println(platonKartaev);
+        // System.out.println(sergeyKartaev);
+        // System.out.println(olgaKartaeva);
+        // System.out.println(ivanKartaev);
+        // System.out.println(vladMakarov);
 
         family.add(nikolayKartaev);
         family.add(anastasiaKartaeva);
@@ -44,6 +44,10 @@ public class Main {
 
         System.out.println(family.getInformation());
 
-    }
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.write("family.out", family);
 
+        Serializable dataRead = (Serializable) fileHandler.read("family.out");
+        System.out.println("Прочитанные данные: " + dataRead);
+    }
 }
