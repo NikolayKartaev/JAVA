@@ -5,6 +5,14 @@ import java.util.List;
 
 public class VendingMachine {
     private int id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private int productId;
     private List<Product> productList;
 
