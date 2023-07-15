@@ -193,10 +193,6 @@ public class algorithms {
             return null;
         }
 
-        private Node findWidth(int value) {
-            
-        }
-
         public class Node {
             int value;
             ArrayList<Node> children;
