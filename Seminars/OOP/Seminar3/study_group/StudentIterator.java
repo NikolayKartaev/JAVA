@@ -2,12 +2,14 @@ package JAVA.Seminars.OOP.Seminar3.study_group;
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentIterator implements Iterator<Student> {
+
+
+public class StudentIterator<Member extends Creatures> implements Iterator<Member> {
     private int index;
-    private List<Student> studentList;
+    private List<Member> studentList;
 
     
-    public StudentIterator(List<Student> studentList) {
+    public StudentIterator(List<Member> studentList) {
         this.studentList = studentList;
     }
 
@@ -17,7 +19,7 @@ public class StudentIterator implements Iterator<Student> {
     }
 
     @Override
-    public Student next() {
+    public Member next() {
         return studentList.get(index++);
     }
 

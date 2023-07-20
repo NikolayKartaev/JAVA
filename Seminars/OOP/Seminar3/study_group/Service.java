@@ -1,12 +1,15 @@
 package JAVA.Seminars.OOP.Seminar3.study_group;
 
 
+
+
+
 public class Service {
     private long id;
-    private StudyGroup studyGroup;
+    private StudyGroup<Creatures> studyGroup;
 
     public Service() {
-        studyGroup = new StudyGroup();
+        studyGroup = new StudyGroup<>();
     }
 
     public void addStudent(String name, int age) {
@@ -25,7 +28,7 @@ public class Service {
         //     stringBuilder.append("\n");
         // }                                    ------ это цикл FOREACH
 
-        for (Student student : studyGroup) {
+        for (Creatures student : studyGroup) {
             stringBuilder.append(student);
             stringBuilder.append("\n");
 

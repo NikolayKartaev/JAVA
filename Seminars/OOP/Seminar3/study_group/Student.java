@@ -1,6 +1,7 @@
 package JAVA.Seminars.OOP.Seminar3.study_group;
 
-public class Student implements Comparable<Student> {
+
+public class Student implements Comparable<Student>, Creatures {
     private long id;
     private String name;
     private int age;
@@ -14,6 +15,16 @@ public class Student implements Comparable<Student> {
     public int compareTo(Student nextStudent) {
         return name.compareTo(nextStudent.name);
     }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -36,6 +47,7 @@ public class Student implements Comparable<Student> {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -44,8 +56,9 @@ public class Student implements Comparable<Student> {
         this.name = name;
     }
 
+    @Override
     public int getAge() {
-        return age;
+        return age; 
     }
 
     public void setAge(int age) {
