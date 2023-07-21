@@ -1,4 +1,4 @@
-package JAVA.Seminars.OOP.Seminar3.study_group;
+package JAVA.Seminars.OOP.Seminar3.study_group.model;
 
 
 

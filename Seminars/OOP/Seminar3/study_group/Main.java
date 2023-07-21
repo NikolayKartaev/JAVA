@@ -1,5 +1,7 @@
 package JAVA.Seminars.OOP.Seminar3.study_group;
 
+import JAVA.Seminars.OOP.Seminar3.study_group.model.Service;
+
 public class Main {
     public static void main(String[] args) {
         // Student student1 = new Student(0, "Vasiliy", 20);
