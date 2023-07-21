@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FamilyTree implements Serializable {
 
-    ArrayList<Human> familyTree;
+    private ArrayList<Human> familyTree;
 
     public FamilyTree(ArrayList<Human> familyTree) {
         this.familyTree = familyTree;
