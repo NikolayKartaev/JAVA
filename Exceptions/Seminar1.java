@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class Seminar1 {
 
     public static void main(String[] args) {
-        int[] array = { 1, 2, 3, 4, 5 };
-        System.out.println(Task1(array, 4));
-        System.out.println(Task1(array, 6));
-
+        // int[] array = { 1, 2, 3, 4, 5 };
+        // System.out.println(Task1(array, 4));
+        // System.out.println(Task1(array, 6));
+        Ask();
     }
 
     public static int Task1(int[] array, int min) {
@@ -29,9 +29,7 @@ public class Seminar1 {
             arr[index] = Integer.parseInt(arrString[index]);
         }
         System.out.println("Введите минимум");
-
         int min = iScanner.nextInt();
-        iScanner.next();
         System.out.println("Введите искомое число");
         int number = iScanner.nextInt();
 
@@ -43,19 +41,23 @@ public class Seminar1 {
         } else if (answer == -3) {
             System.out.println("Массив не определен");
         }
+        else System.out.printf("Индекс равен %d", answer);
     }
 
     public static int Task2(int[] array, int min, int find) {
-        if (array.length < min) {
-            return -1;
-        }
+        int number = 0;
         if (array == null) {
-            return -3;
-        } else {
-            int index = Arrays.binarySearch(array, find);
-            return (index < 0) ? -2 : index;
+            number = -3;
         }
-
+        int index = Arrays.binarySearch(array, find);
+        if (index < 0) {
+            number =-2;
+        }
+        if (array.length < min) {
+            number = -1;
+        }
+        else number = index;
+        return number;
     }
 
 }
